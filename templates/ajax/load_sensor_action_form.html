@@ -1,0 +1,36 @@
+<div class="card">
+    <div class="card-header">
+        <h4 class="text-primary"><i class="bi bi-pencil-square"></i> 處理動作表</h4>
+    </div>
+    <div class="card-body">
+        <!-- add button -->
+        <div class="btn-group text-center">
+            <button id="add_account" class="btn btn-primary" onclick="submit_add_account()">
+                <i class="bi bi-person-plus"></i> 新增
+            </button>
+        </div>
+        <!-- account total and list -->
+        <div style="margin:1%; padding:1%;">
+            <table class="table table-striped table-hover table-bordered">
+                <tr>
+                    <th>帳號</th>
+                    <th>密碼</th>
+                    <th>位置</th>
+                </tr>
+                {% for val in a_list %}
+                <tr>
+                    <td class="mouse_hover" id="{{ val[0] }}" onclick="kedge_alter_account(id)">{{ val[0] }}</td>
+                    <td>{{ val[1] }}</td>
+                    <td>{{ val[2] }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+    <div class="card-footer text-right">
+        <!-- goto top -->
+        <button id="goto_top" class="btn btn-success text-right" onclick="goto_top()">
+            <i class="bi bi-chevron-double-up"></i> Top
+        </button>
+    </div>
+</div>

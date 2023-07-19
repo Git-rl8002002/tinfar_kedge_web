@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{{ title }} </title>
+    <meta charset="UTF-8">
+
+    <!-- logo icon -->
+    <link rel="Shortcut Icon" type="image/x-icon" href="{{ url_for('static',filename='img/icon/database.png') }}" />
+    
+    <!-- Responsive meta tag -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap 4.5.2 --> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    
+    <!-- Bootstrap 4.6.1
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <script type="text/javascript" src="{{ url_for('static' , filename='js/jquery-3.4.1.min.js') }}"></script>
+    -->
+    
+    <!-- socketIO CDN -->
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.5.1/socket.io.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/open-iconic-bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='js/flatpickr-gh-pages/dist/flatpickr.min.css') }}">
+    
+    
+    <!-- JavaScript -->
+    <script type="text/javascript" src="{{ url_for('static' , filename='js/index.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static' , filename='js/flatpickr-gh-pages/dist/flatpickr.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static' , filename='js/ckeditor_4.5.7_full/ckeditor.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static' , filename='js/ckeditor_4.5.7_full/plugins/image/dialogs/image.js') }}"></script>
+    
+    <!-- websocket -->
+    <script type="text/javascript">
+        $(document).ready(function(){
+            
+        
+        var socket = io.connect('http://61.220.205.142:8080/');
+        
+        socket.on('server response', function(msg) {
+            $("#status").append("<p>Received : "+ msg.data +"</p>");
+            return false;
+        });
+               
+            $(window).scroll(function() {
+                if ( $(this).scrollTop() > 300){
+                    $('#goto_top').fadeIn("fast");
+                } else {
+                    $('#goto_top').stop().fadeOut("fast");
+                }
+            });
+            
+        });
+    </script>	
+
+
+</head>
+<body>
+    
+    <!-- menu -->
+    <nav class="navbar navbar-expand-sm bg-primary fixed-top">
+            <!-- Brand -->
+            <a class="navbar-brand mr-2" href="/"><button class="btn btn-primary">根基營造</button></a>
+            {% if lv == "1" %}
+            <!-- Toggler/collapsibe Button -->
+            <button class="navbar-toggler btn btn-primary" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                <i class="bi bi-list"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav">
+                <!-- online user -->
+                <li class="nav-item mr-2"><button class="btn btn-primary"><i class="bi bi-person-circle"></i> {{ user }}</button></li>
+
+                <!-- logout -->
+                <li class="nav-item mr-2"><a href="/logout"><button class="btn btn-primary"><i class="bi bi-door-open"></i>  登出</button></a></li>
+                
+                <!-- 權限管理 -->    
+                <li class="nav-item dropdown">
+                    <a class="nav-linkbtn dropdown-toggle" href="#" id="db-system" data-toggle="dropdown"><button class="btn btn-primary"><i class="bi bi-server"></i> 權限管理</button></a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="/account_manager"><i class="bi bi-person-bounding-box"></i> 帳號管理</a>
+                    </div>
+                </li>
+                <!-- 監控數值管理 -->    
+                <li class="nav-item dropdown">
+                    <a class="nav-linkbtn dropdown-toggle" href="#" id="db-system" data-toggle="dropdown"><button class="btn btn-primary"><i class="bi bi-server"></i> 感測器管理</button></a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="/"><i class="bi bi-bookmarks"></i> 感測器數值</a>
+                        <a class="dropdown-item" href="/menu_website_record"><i class="bi bi-pencil-square"></i> 感測器設定</a>
+                        <a class="dropdown-item" href="/menu_website_record"><i class="bi bi-alarm"></i> 感測器警報</a>
+                        <a class="dropdown-item" href="/menu_website_record"><i class="bi bi-pen"></i> 感測器記錄</a>
+                    </div>
+                </li>
+            </ul>
+            </div> 
+
+            {% elif lv == "2" %}
+            <button class="navbar-toggler btn btn-primary " type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                <i class="bi bi-list"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav">
+                <!-- online user -->
+                <li class="nav-item mr-2"><button class="btn btn-primary"><i class="bi bi-person-circle"></i> {{ user }}</button></li>
+
+                <!-- logout -->
+                <li class="nav-item mr-2"><a href="/logout"><button class="btn btn-primary"><i class="bi bi-door-open"></i> 登出</button></a></li>
+
+                <!-- 權限管理 -->    
+                <li class="nav-item dropdown">
+                    <a class="nav-linkbtn dropdown-toggle" href="#" id="db-system" data-toggle="dropdown"><button class="btn btn-primary"><i class="bi bi-server"></i> 權限管理</button></a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="/account_manager"><i class="bi bi-person-bounding-box"></i> 帳號管理</a>
+                    </div>
+                </li>
+                <!-- 監控數值管理 -->    
+                <li class="nav-item dropdown">
+                    <a class="nav-linkbtn dropdown-toggle" href="#" id="db-system" data-toggle="dropdown"><button class="btn btn-primary"><i class="bi bi-server"></i> 感測器管理</button></a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="/"><i class="bi bi-bookmarks"></i> 感測器數值</a>
+                        <a class="dropdown-item" href="/menu_website_record"><i class="bi bi-pencil-square"></i> 感測器設定</a>
+                        <a class="dropdown-item" href="/menu_website_record"><i class="bi bi-alarm"></i> 感測器警報</a>
+                        <a class="dropdown-item" href="/menu_website_record"><i class="bi bi-pen"></i> 感測器記錄</a>
+                    </div>
+                </li>
+            </ul>
+            </div>
+
+            {% elif lv == "3" %}
+            <button class="navbar-toggler btn btn-primary " type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                <i class="bi bi-list"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav">
+                <!-- online user -->
+                <li class="nav-item mr-2"><button class="btn btn-primary"><i class="bi bi-person-circle"></i> {{ user }}</button></li>
+
+                <!-- logout -->
+                <li class="nav-item mr-2"><a href="/logout"><button class="btn btn-primary"><i class="bi bi-door-open"></i> 登出</button></a></li>
+                
+                <!-- 監控數值管理 -->    
+                <li class="nav-item dropdown">
+                    <a class="nav-linkbtn dropdown-toggle" href="#" id="db-system" data-toggle="dropdown"><button class="btn btn-primary"><i class="bi bi-server"></i> 感測器管理</button></a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="/"><i class="bi bi-bookmarks"></i> 感測器數值</a>
+                        <a class="dropdown-item" href="/menu_website_record"><i class="bi bi-alarm"></i> 感測器警報</a>
+                        <a class="dropdown-item" href="/menu_website_record"><i class="bi bi-pen"></i> 感測器記錄</a>
+                    </div>
+                </li>
+            </ul>
+            </div>
+            {% endif %}
+    </nav>
+
+    <div class="container-fluid text-primary m-auto">
+        
+        <div class="row my-3">
+            <div class="col-md-12 my-3">
+                
+            </div>
+        </div>
+
+        <!-- main content -->
+        <div class="row my-3">
+            {% if lv == "1" %}
+            <!-- 權限管理 -->
+            <div id="main_content" class="col-md-6 my-3">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="text-primary"><i class="bi bi-pencil-square"></i> 權限管理</h4>
+                    </div>
+                    <div class="card-body">
+                        <!-- add button -->
+                        <div class="btn-group text-center">
+                            <button id="add_account" class="btn btn-primary" onclick="submit_add_account()">
+                                <i class="bi bi-person-plus"></i> 新增
+                            </button>
+                        </div>
+                        <!-- account total and list -->
+                        <div style="margin:1%; padding:1%;">
+                            <table class="table table-striped table-hover table-bordered">
+                                <tr>
+                                    <th>帳號</th>
+                                    <th>密碼</th>
+                                    <th>位置</th>
+                                </tr>
+                                {% for val in a_list %}
+                                <tr>
+                                    <td class="mouse_hover" id="{{ val[0] }}" onclick="kedge_alter_account(id)">{{ val[0] }}</td>
+                                    <td>{{ val[1] }}</td>
+                                    <td>{{ val[2] }}</td>
+                                </tr>
+                                {% endfor %}
+                            </table>
+                        </div>
+                    </div>
+                    <div class="card-footer text-right">
+                        <!-- goto top -->
+                        <button id="goto_top" class="btn btn-success text-right" onclick="goto_top()">
+                            <i class="bi bi-chevron-double-up"></i> Top
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div id="kedge_alter_account" class="col-md-6 my-3"></div>
+
+            {% elif lv == "2" %}
+            <!-- 權限管理 -->
+            <div id="main_content" class="col-md-6 my-3">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="text-primary"><i class="bi bi-pencil-square"></i> 權限管理</h4>
+                    </div>
+                    <div class="card-body">
+                        <!-- add button -->
+                        <div class="btn-group text-center">
+                            <button id="add_account" class="btn btn-primary" onclick="submit_add_account()">
+                                <i class="bi bi-person-plus"></i> 新增
+                            </button>
+                        </div>
+                        <!-- account total and list -->
+                        <div style="margin:1%; padding:1%;">
+                            <table class="table table-striped table-hover table-bordered">
+                                <tr>
+                                    <th>帳號</th>
+                                    <th>密碼</th>
+                                    <th>位置</th>
+                                </tr>
+                                {% for val in a_list %}
+                                <tr>
+                                    <td class="mouse_hover" id="{{ val[0] }}" onclick="kedge_alter_account(id)">{{ val[0] }}</td>
+                                    <td>{{ val[1] }}</td>
+                                    <td>{{ val[2] }}</td>
+                                </tr>
+                                {% endfor %}
+                            </table>
+                        </div>
+                    </div>
+                    <div class="card-footer text-right">
+                        <!-- goto top -->
+                        <button id="goto_top" class="btn btn-success text-right" onclick="goto_top()">
+                            <i class="bi bi-chevron-double-up"></i> Top
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div id="kedge_alter_account" class="col-md-6 my-3"></div>
+            {% endif%}
+            
+        </div>
+        
+    </div>
+</body>
+</html>

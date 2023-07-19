@@ -1,0 +1,29 @@
+@CHARSET "UTF-8";
+a:visited{color:blue; text-decoration:none;}
+a:hover  {color:red;  text-decoration:none;}
+a:active {text-decoration:none;}
+a:link   {text-decoration:none;}
+
+
+
+.mouse_hover:hover{
+    background-color:#cccccc;
+}
+.border_01
+{
+    margin: 1%;
+    padding: 1%;;
+    border:solid 1px #cccccc;
+}
+
+btn_space{
+    padding:0.2%;
+}
+select{
+    cursor: pointer;
+    margin:0.01%;
+}
+div,input,textarea,select{
+    cursor: pointer;
+}
+

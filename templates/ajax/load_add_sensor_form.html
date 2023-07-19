@@ -1,0 +1,138 @@
+<div id="add_{{ a_s_form }}" class="card">
+    <div class="card-header">
+        <h4 class="text-primary"><i class="bi bi-pencil-square"></i> 數值設定表</h4>
+    </div>
+    <div class="card-body">
+        <div style="margin:1%; padding:1%;">
+            <!-- 噪音 -->
+            <div class="input-group">
+                <div class="input-group-preped">
+                    <span class="input-group-text">噪音</span>
+                </div>
+                {% if a_s_form == "s_p_南門市場" %}
+                <input type="text" id="{{ a_s_form }}_db" class="form-control" value="{{ s1_sensor_db }}">
+                {% elif a_s_form == "s_p_桃園會展" %}
+                <input type="text" id="{{ a_s_form }}_db" class="form-control" value="{{ s2_sensor_db }}">
+                {% elif a_s_form == "s_p_泰山社宅" %}
+                <input type="text" id="{{ a_s_form }}_db" class="form-control" value="{{ s3_sensor_db }}">
+                {% elif a_s_form == "s_p_二重埔" %}
+                <input type="text" id="{{ a_s_form }}_db" class="form-control" value="{{ s4_sensor_db }}">
+                {% elif a_s_form == "s_p_民權東路案" %}
+                <input type="text" id="{{ a_s_form }}_db" class="form-control" value="{{ s5_sensor_db }}">
+                {% elif a_s_form == "s_p_秀朗橋案" %}
+                <input type="text" id="{{ a_s_form }}_db" class="form-control" value="{{ s6_sensor_db }}">
+                {% elif a_s_form == "s_p_裕毛屋" %}
+                <input type="text" id="{{ a_s_form }}_db" class="form-control" value="{{ s7_sensor_db }}">
+                {% elif a_s_form == "s_p_後龍大橋" %}
+                <input type="text" id="{{ a_s_form }}_db" class="form-control" value="{{ s8_sensor_db }}">
+                {% elif a_s_form == "s_p_嘉義車站C611世賢南" %}
+                <input type="text" id="{{ a_s_form }}_db" class="form-control" value="{{ s9_sensor_db }}">
+                {% elif a_s_form == "s_p_嘉義車站C611宏仁女中" %}
+                <input type="text" id="{{ a_s_form }}_db" class="form-control" value="{{ s10_sensor_db }}">
+                {% elif a_s_form == "s_p_嘉義車站C612嘉北車站" %}
+                <input type="text" id="{{ a_s_form }}_db" class="form-control" value="{{ s11_sensor_db }}">
+                {% elif a_s_form == "s_p_嘉義車站C612北興" %}
+                <input type="text" id="{{ a_s_form }}_db" class="form-control" value="{{ s12_sensor_db }}">
+                {% elif a_s_form == "s_p_台南車站一號口" %}
+                <input type="text" id="{{ a_s_form }}_db" class="form-control" value="{{ s13_sensor_db }}">
+                {% elif a_s_form == "s_p_台南車站四號口" %}
+                <input type="text" id="{{ a_s_form }}_db" class="form-control" value="{{ s14_sensor_db }}">
+                
+                {% endif %}
+                <div class="input-group-preped">
+                    <span class="input-group-text">dB</span>
+                </div>
+            </div>
+            <!-- PM10 -->
+            <div class="input-group">
+                <div class="input-group-preped">
+                    <span class="input-group-text">PM10</span>
+                </div>
+                {% if a_s_form  == "s_p_南門市場" %}
+                <input type="text" id="{{ a_s_form }}_pm10" class="form-control"  value="{{ s1_sensor_pm10 }}">
+                {% elif  a_s_form == "s_p_桃園會展" %}
+                <input type="text" id="{{ a_s_form }}_pm10" class="form-control"  value="{{ s2_sensor_pm10 }}">
+                {% elif a_s_form == "s_p_泰山社宅" %}
+                <input type="text" id="{{ a_s_form }}_pm10" class="form-control"  value="{{ s3_sensor_pm10 }}">
+                {% elif a_s_form == "s_p_二重埔" %}
+                <input type="text" id="{{ a_s_form }}_pm10" class="form-control"  value="{{ s4_sensor_pm10 }}">
+                {% elif a_s_form == "s_p_民權東路案" %}
+                <input type="text" id="{{ a_s_form }}_pm10" class="form-control"  value="{{ s5_sensor_pm10 }}">
+                {% elif a_s_form == "s_p_秀朗橋案" %}
+                <input type="text" id="{{ a_s_form }}_pm10" class="form-control"  value="{{ s6_sensor_pm10 }}">
+                {% elif a_s_form == "s_p_裕毛屋" %}
+                <input type="text" id="{{ a_s_form }}_pm10" class="form-control"  value="{{ s7_sensor_pm10 }}">
+                {% elif a_s_form == "s_p_後龍大橋" %}
+                <input type="text" id="{{ a_s_form }}_pm10" class="form-control"  value="{{ s8_sensor_pm10 }}">
+                {% elif a_s_form == "s_p_嘉義車站C611世賢南" %}
+                <input type="text" id="{{ a_s_form }}_pm10" class="form-control"  value="{{ s9_sensor_pm10 }}">
+                {% elif a_s_form == "s_p_嘉義車站C611宏仁女中" %}
+                <input type="text" id="{{ a_s_form }}_pm10" class="form-control"  value="{{ s10_sensor_pm10 }}">
+                {% elif a_s_form == "s_p_嘉義車站C612嘉北車站" %}
+                <input type="text" id="{{ a_s_form }}_pm10" class="form-control"  value="{{ s11_sensor_pm10 }}">
+                {% elif a_s_form == "s_p_嘉義車站C612北興" %}
+                <input type="text" id="{{ a_s_form }}_pm10" class="form-control"  value="{{ s12_sensor_pm10 }}">
+                {% elif a_s_form == "s_p_台南車站一號口" %}
+                <input type="text" id="{{ a_s_form }}_pm10" class="form-control"  value="{{ s13_sensor_pm10 }}">
+                {% elif a_s_form == "s_p_台南車站四號口" %}
+                <input type="text" id="{{ a_s_form }}_pm10" class="form-control"  value="{{ s14_sensor_pm10 }}">
+                {% endif %}
+                <div class="input-group-preped">
+                    <span class="input-group-text">μg/m³</span>
+                </div>
+            </div>
+            <!-- PM25 -->
+            <div class="input-group">
+                <div class="input-group-preped">
+                    <span class="input-group-text">PM2.5</span>
+                </div>
+                {% if a_s_form == 's_p_南門市場' %}
+                <input type="text" id="{{a_s_form}}_pm25" class="form-control"  value="{{ s1_sensor_pm25 }}">
+                {% elif a_s_form == 's_p_桃園會展' %}
+                <input type="text" id="{{a_s_form}}_pm25" class="form-control"  value="{{ s2_sensor_pm25 }}">
+                {% elif a_s_form == "s_p_泰山社宅" %}
+                <input type="text" id="{{a_s_form}}_pm25" class="form-control"  value="{{ s3_sensor_pm25 }}">
+                {% elif a_s_form == "s_p_二重埔" %}
+                <input type="text" id="{{a_s_form}}_pm25" class="form-control"  value="{{ s4_sensor_pm25 }}">
+                {% elif a_s_form == "s_p_民權東路案" %}
+                <input type="text" id="{{a_s_form}}_pm25" class="form-control"  value="{{ s5_sensor_pm25 }}">
+                {% elif a_s_form == "s_p_秀朗橋案" %}
+                <input type="text" id="{{a_s_form}}_pm25" class="form-control"  value="{{ s6_sensor_pm25 }}">
+                {% elif a_s_form == "s_p_裕毛屋" %}
+                <input type="text" id="{{a_s_form}}_pm25" class="form-control"  value="{{ s7_sensor_pm25 }}">
+                {% elif a_s_form == "s_p_後龍大橋" %}
+                <input type="text" id="{{a_s_form}}_pm25" class="form-control"  value="{{ s8_sensor_pm25 }}">
+                {% elif a_s_form == "s_p_嘉義車站C611世賢南" %}
+                <input type="text" id="{{a_s_form}}_pm25" class="form-control"  value="{{ s9_sensor_pm25 }}">
+                {% elif a_s_form == "s_p_嘉義車站C611宏仁女中" %}
+                <input type="text" id="{{a_s_form}}_pm25" class="form-control"  value="{{ s10_sensor_pm25 }}">
+                {% elif a_s_form == "s_p_嘉義車站C612嘉北車站" %}
+                <input type="text" id="{{a_s_form}}_pm25" class="form-control"  value="{{ s11_sensor_pm25 }}">
+                {% elif a_s_form == "s_p_嘉義車站C612北興" %}
+                <input type="text" id="{{a_s_form}}_pm25" class="form-control"  value="{{ s12_sensor_pm25 }}">
+                {% elif a_s_form == "s_p_台南車站一號口" %}
+                <input type="text" id="{{a_s_form}}_pm25" class="form-control"  value="{{ s13_sensor_pm25 }}">
+                {% elif a_s_form == "s_p_台南車站四號口" %}
+                <input type="text" id="{{a_s_form}}_pm25" class="form-control"  value="{{ s14_sensor_pm25 }}">
+                {% endif %}
+                <div class="input-group-preped">
+                    <span class="input-group-text">μg/m³</span>
+                </div>
+            </div>
+
+            <!-- position -->
+            <input type="hidden" id="{{a_s_form}}_position" class="form-control"  value="{{ a_s_form }}">
+        </div>
+    </div>
+    <div class="card-footer text-right">
+        <!-- button submit , cancel -->
+        <div class="btn-group text-center">
+            <button id="{{ a_s_form }}" class="btn btn-success" onclick="submit_alter_sensor_setup(id)">
+                <i class="bi bi-send"></i> 修改
+            </button>
+            <button id="add_{{ a_s_form }}" class="btn btn-warning" onclick="kedge_cancel_sensor_form(id)">
+                <i class="bi bi-x-circle"></i> 取消
+            </button>
+        </div>
+    </div>
+</div>

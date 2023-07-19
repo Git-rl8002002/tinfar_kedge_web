@@ -1,0 +1,67 @@
+<div id="kedge_alter_account_form" class="card">
+    <div class="card-header">
+        <h4 class="text-primary"><i class="bi bi-pencil-square"></i> 新增帳號</h4>
+    </div>
+    <div class="card-body">
+        
+        <!-- 帳號 -->
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">帳號</span>
+            </div>
+            <input type="text" id="a_account_user" class="form-control">
+        </div>
+        
+        <!-- 密碼 -->
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">密碼</span>
+            </div>
+            <input type="text" id="a_account_pwd" class="form-control">
+        </div>
+
+        <!-- 權限 
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">權限</span>
+            </div>
+        </div>
+        -->
+        <input type="hidden" id="a_account_lv" class="form-control" value="3" readonly/>
+        
+        
+        <!-- 位置 -->
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">位置</span>
+            </div>
+            <input type="text" id="a_account_position" class="form-control">
+            <select id="change_account_position" onchange="alter_account_position()">
+                <option></option>
+                {% for p_val in a_position %}
+                <option>{{ p_val[0] }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <!-- 備註 -->
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">備註</span>
+            </div>
+            <textarea type="text" id="a_account_comment" class="form-control" ></textarea>
+        </div>
+
+    </div>
+
+    <div class="card-footer text-right">
+        <!-- button submit , cancel -->
+        <div class="btn-group text-center">
+            <button id="goto_top" class="btn btn-success" onclick="submit_add_new_account()">
+                <i class="bi bi-send"></i> 新增
+            </button>
+            <button id="goto_top" class="btn btn-warning" onclick="kedge_cancel_alter()">
+                <i class="bi bi-x-circle"></i> 取消
+            </button>
+        </div>
+    </div>
+</div>
